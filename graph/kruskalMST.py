@@ -1,3 +1,5 @@
+# Kruskal's Algorithm
+
 class Graph:
     def __init__(self,V):
         self.V=V
