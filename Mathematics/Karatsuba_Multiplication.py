@@ -1,4 +1,4 @@
-# Kartsuba Algorithm
+# Karatsuba Algorithm
 # This algorithm is used for multiplication of numbers with large number of digits.
 # It reduces the product of two large numbers into sum of three products of numbers with half the number of digits.
 x=int(input("Enter the first number for multiplication"))
