@@ -42,3 +42,5 @@ l=g.topoSort(n)
 for i in l:
     print(i,end=" ")
 print()
+
+# https://discuss.codechef.com/t/find-lexicographically-smallest-topological-sort-of-a-directed-acyclic-graph/62690
