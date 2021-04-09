@@ -33,3 +33,7 @@ class Solution:
             count-=k
             pre=cur # pre is made to last node of size k group
         return dummy.next
+    
+# Time complexity: O(N/K)*K  = O(N)
+# ( N/K is the number of groups of size K and for every group we do K-1 iterations)
+# Space complexity: O(1), for storing pointers
