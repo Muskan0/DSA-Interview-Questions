@@ -39,3 +39,37 @@ def func(arr,node,x,y):
         
 # Time complexity: O(nlogn)
 # Space complexity: O(n)
+
+
+=======================================================================================================
+
+class Solution:
+    def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
+        q=[[root, 0, 0]]
+        d=dict()
+        while q:
+            node=q.pop(0)
+            x=node[1]
+            y=node[2]
+            if x not in d:
+                d[x]=dict()
+            if y not in d[x]:
+                d[x][y]=[]
+            
+            d[x][y].append(node[0].val)
+            
+            if node[0].left!=None:
+                q.append([node[0].left, x-1, y+1])
+            if node[0].right!=None:
+                q.append([node[0].right, x+1, y+1])
+        ans=[]
+        s=sorted(d.keys())
+        for vertical in s:
+            temp=[]
+            for level in d[vertical].keys():
+                temp.extend(sorted(d[vertical][level]))
+            ans.append(temp)
+        return ans
+        
+# Time Complexity: O(nlogn), where n is no of nodes in binary tree
+# Space Complexity: O(n)
