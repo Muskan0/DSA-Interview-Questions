@@ -17,3 +17,35 @@ for _ in range(int(input())):
             else:
                 t[i][j]=t[i-1][j]
     print(t[n][n])
+    
+    
+    
+    
+    
+    
+# ================================================================================================================================
+
+class Solution:
+    def cutRod(self, price, n):
+        return self.maxCost(price, 0, n, {})
+    
+    def maxCost(self, price, currentIndex, length, memo):
+        if length==0:
+            return 0
+        if currentIndex+1>length or currentIndex>=len(price):
+            return 0
+        
+        currentKey=str(currentIndex)+" "+str(length)
+        if currentKey in memo:
+            return memo[currentKey]
+        
+        conider=0
+        if currentIndex+1<=length:
+            consider=price[currentIndex]+self.maxCost(price, currentIndex, length-(currentIndex+1), memo)
+        notconsider=self.maxCost(price, currentIndex+1, length, memo)
+        
+        memo[currentKey]= max(consider, notconsider)
+        return memo[currentKey]
+# Time Complexity: O(length*N), where length is the total length of the rod 
+# and N is the no of elements in price array
+# Space Complexity: O(length*N)
